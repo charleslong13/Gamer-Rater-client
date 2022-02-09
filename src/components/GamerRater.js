@@ -4,29 +4,31 @@ import { ApplicationViews } from "./ApplicationViews"
 import { NavBar } from "./nav/NavBar"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
+import { BrowserRouter } from "react-router-dom"
 
 export const GamerRater = () => (
     <>
-        <Route render={() => {
-            if (localStorage.getItem("lu_token")) {
-                return <>
-                    <Route>
-                        <NavBar />
-                        <ApplicationViews />
-                    </Route>
-                </>
-            } else {
-                return <Redirect to="/login" />
-            }
-        }} />
+        <BrowserRouter>
+            <Route render={() => {
+                if (localStorage.getItem("lu_token")) {
+                    return <>
+                        <Route>
+                            <NavBar />
+                            <ApplicationViews />
+                        </Route>
+                    </>
+                } else {
+                    return <Redirect to="/login" />
+                }
+            }} />
 
-        <Route path="/login">
-            <Login />
-        </Route>
+            <Route path="/login">
+                <Login />
+            </Route>
 
-        <Route path="/register">
-            <Register />
-        </Route>
-
+            <Route path="/register">
+                <Register />
+            </Route>
+            </BrowserRouter>
     </>
 )
