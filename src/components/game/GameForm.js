@@ -167,9 +167,9 @@ export const GameForm = ({editGame}) => {
                     // Send PUT/POST request to your API
                     editGame
                     ? updateGame(gameId, currentGame)
-                        .then(() => history.push("/games"))
+                        .then(() => history.push("/game"))
                     : createGame(currentGame)
-                        .then(() => history.push("/games"))
+                        .then(() => history.push("/game"))
                 }}
                 className="btn btn-primary">{editGame ? "Update Game" : "Create"}</button>
         </form>

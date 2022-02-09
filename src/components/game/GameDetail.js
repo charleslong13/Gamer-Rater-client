@@ -22,7 +22,7 @@ export const GameDetail = (props) => {
                 <div className="game__year">Year released: {game.year_released}</div>
                 <div className="game__description">Description: {game.description}</div>
                 <div className="game__ageRecommendation">Recommended Age: {game.age_rec} years old</div>
-                <div className="game__estPlaytime">Estimated Playtime: {game.time_to_play} hours</div>
+                <div className="game__timeToPlay">Time to play: {game.time_to_play} hours</div>
                 <div className="game__numberOfPlayers">Number of Players: {game.num_of_players} players</div>
                 <div className="game__categories">Categories:
                     {
@@ -33,7 +33,7 @@ export const GameDetail = (props) => {
                 </div>
 
                 <button onClick={() => history.push(`/games/edit/${game.id}`)}>Edit Game</button>
-                <button onClick={() => { deleteGame(game.id).then(setGame) }}>Delete Game</button>
+                <button onClick={() =>  deleteGame(game.id).then(history.push(`/game`) )}>Delete Game</button>
 
             </section>
         </>
